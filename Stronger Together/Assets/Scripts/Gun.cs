@@ -6,16 +6,8 @@ public class Gun : MonoBehaviour
 {
     public AudioSource m_shootingAudio;
 
-	private void Start()
+	private void OnMouseDown()
 	{
 		m_shootingAudio = GetComponent<AudioSource>();
-	}
-
-	private void Update()
-	{
-		if (Input.GetMouseButton(0))
-		{
-			m_shootingAudio.Play();
-		}
 	}
 }
