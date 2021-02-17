@@ -9,10 +9,11 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    private Transform target;
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -20,16 +21,15 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
         direction.Normalize();
         movement = direction;
     }
-	private void FixedUpdate()
-	{
+    private void FixedUpdate()
+    {
         moveCharacter(movement);
-	}
-	void moveCharacter(Vector2 direction)
-	{
-        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
-	}
+    }
+    void moveCharacter(Vector2 direction)
+    {
+
+    }
 }
